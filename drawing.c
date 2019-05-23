@@ -6,11 +6,18 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/23 17:57:55 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/23 18:11:45 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/23 20:41:58 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void		drawdot(t_point pt, t_fdf *params)
+{
+	if (pt.x >= 0 && pt.x <= params->resolution[0] &&
+	pt.y >= 0 && pt.y <= params->resolution[1])
+		mlx_pixel_put(params->mlx_ptr, params->win_ptr, pt.x, pt.y, 0xFFFFFF);
+}
 
 static void	drawline_high(t_point point1, t_point point2, t_fdf *params)
 {
@@ -30,7 +37,7 @@ static void	drawline_high(t_point point1, t_point point2, t_fdf *params)
 	p = 2 * dx - dy;
 	while (point1.y != point2.y)
 	{
-		mlx_pixel_put(params->mlx_ptr, params->win_ptr, point1.x + 50, point1.y + 50, 0xFFFFFF);
+		drawdot(point1, params);
 		point1.y++;
 		if (p > 0)
 		{
@@ -59,7 +66,7 @@ static void	drawline_low(t_point point1, t_point point2, t_fdf *params)
 	p = (2 * dy) - dx;
 	while (point1.x != point2.x)
 	{
-		mlx_pixel_put(params->mlx_ptr, params->win_ptr, point1.x + 50, point1.y + 50, 0xFFFFFF);
+		drawdot(point1, params);
 		point1.x++;
 		if (p > 0)
 		{
@@ -72,8 +79,12 @@ static void	drawline_low(t_point point1, t_point point2, t_fdf *params)
 
 static void	drawline(t_point point1, t_point point2, t_fdf *params)
 {
+	offset(&point1, params);
+	offset(&point2, params);
 	rotate(&point1, params);
 	rotate(&point2, params);
+	offset2(&point1, params);
+	offset2(&point2, params);
 	if (abs(point2.y - point1.y) < abs(point2.x - point1.x))
 	{
 		if (point1.x > point2.x)
@@ -103,16 +114,14 @@ void		put_map(t_fdf *params)
 		{
 			point2.x = point1.x + params->scale;
 			point2.y = point1.y;
-			point1.z = params->map[(point1.y / params->scale)][(point1.x / params->scale)] * params->height;
-			point2.z = params->map[(point2.y / params->scale)][(point2.x / params->scale)] * params->height;
+			find_z(&point1, &point2, params);
 			if (point1.x < ((params->x * params->scale) - params->scale))
 				drawline(point1, point2, params);
 			if (point1.y < ((params->y * params->scale) - params->scale))
 			{
 				point2.x = point1.x;
 				point2.y = point1.y + params->scale;
-				point1.z = params->map[(point1.y / params->scale)][(point1.x / params->scale)] * params->height;
-				point2.z = params->map[(point2.y / params->scale)][(point2.x / params->scale)] * params->height;
+				find_z(&point1, &point2, params);
 				drawline(point1, point2, params);
 			}
 			point1.x += params->scale;

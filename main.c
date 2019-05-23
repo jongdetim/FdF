@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/15 17:51:03 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/23 18:41:56 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/23 20:44:12 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	create_map(int fd, t_fdf *params)
 void	set_params(t_fdf *params)
 {
 	float	aspect;
-	
+
 	params->height = 2;
 	params->x_angle = 3.66519143;
 	params->y_angle = 3.66519143;
