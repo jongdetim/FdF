@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/13 21:06:49 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/23 20:45:07 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/23 21:13:26 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct		s_fdf
 	double			x_angle;
 	double			y_angle;
 	double			z_angle;
-	int				height;
+	float			height;
 	int				resolution[2];
 }					t_fdf;
 

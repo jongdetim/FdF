@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/23 20:28:45 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/23 20:42:55 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/23 21:29:56 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		offset2(t_point *pt, t_fdf *params)
 void		find_z(t_point *pt1, t_point *pt2, t_fdf *params)
 {
 	pt1->z = params->map[(pt1->y / params->scale)][(pt1->x / params->scale)]
-		* params->height;
+		* (params->height * params->scale) / 20;
 	pt2->z = params->map[(pt2->y / params->scale)][(pt2->x / params->scale)]
-		* params->height;
+		* (params->height * params->scale) / 20;
 }

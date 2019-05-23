@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/15 17:51:03 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/23 20:44:12 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/23 21:10:15 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ void	set_params(t_fdf *params)
 {
 	float	aspect;
 
-	params->height = 2;
 	params->x_angle = 3.66519143;
 	params->y_angle = 3.66519143;
 	params->z_angle = 3.75919143;
 	params->scale = 100000 / (params->x * 90);
+	params->height = 2;
 	aspect = (float)params->x / (float)params->y;
 	params->resolution[0] = 1000 * aspect;
 	params->resolution[1] = 1000;
