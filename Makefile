@@ -6,7 +6,7 @@
 #    By: tide-jon <tide-jon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/05/11 17:51:16 by tide-jon       #+#    #+#                 #
-#    Updated: 2019/05/13 21:06:42 by tide-jon      ########   odam.nl          #
+#    Updated: 2019/05/23 17:59:17 by tide-jon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fdf
 
 OBJECTS =	$(SRCS:.c=.o)
 
-SRCS = 		main.c
+SRCS = 		main.c key_commands.c rotation.c drawing.c
 
 all :		$(NAME)
 
