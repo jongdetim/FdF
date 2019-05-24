@@ -6,27 +6,25 @@
 #    By: tide-jon <tide-jon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/05/11 17:51:16 by tide-jon       #+#    #+#                 #
-#    Updated: 2019/05/24 18:48:43 by tide-jon      ########   odam.nl          #
+#    Updated: 2019/05/24 19:44:56 by tide-jon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
-
-OBJECTS =	$(SRCS:.c=.o)
+NAME =		fdf
 
 SRCS = 		main.c key_commands.c rotation.c drawing.c helpers.c offset.c
+
+OBJECTS =	$(SRCS:.c=.o)
 
 all :		$(NAME)
 
 $(NAME) :	$(OBJECTS)
+			@ cd minilibx_macos && make && cd .. && cd libft && make && cd ..
 			@ gcc -Wall -Wextra -Werror $(OBJECTS) -L ./libft/ -lft \
 			-L ./minilibx_macos/ -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-$(OBJECTS) : $(SRCS) libs
-			@ gcc -c -Wall -Wextra -Werror $(SRCS) -I ./minilibx_macos/ -I ./libft/
-
-libs :
-			@ cd libft && make && cd .. && cd minilibx_macos && make && cd ..
+%.o : %.c
+			@ gcc -c -Wall -Wextra -Werror $< -o $@ -I ./minilibx_macos/ -I ./libft/
 
 clean :
 			@ cd libft && make clean && cd .. && cd minilibx_macos && \
