@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/23 17:57:55 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/23 20:41:58 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/24 19:13:22 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void		drawdot(t_point pt, t_fdf *params)
 {
 	if (pt.x >= 0 && pt.x <= params->resolution[0] &&
 	pt.y >= 0 && pt.y <= params->resolution[1])
-		mlx_pixel_put(params->mlx_ptr, params->win_ptr, pt.x, pt.y, 0xFFFFFF);
+		mlx_pixel_put(params->mlx_ptr, params->win_ptr,
+		pt.x, pt.y, params->colour);
 }
 
 static void	drawline_high(t_point point1, t_point point2, t_fdf *params)

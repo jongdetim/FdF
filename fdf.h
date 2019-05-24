@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/13 21:06:49 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/23 21:13:26 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/24 18:53:55 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct		s_fdf
 	double			z_angle;
 	float			height;
 	int				resolution[2];
+	int				offset_x;
+	int				offset_y;
+	int				colour;
 }					t_fdf;
 
 typedef struct		s_point
@@ -47,5 +50,9 @@ void				rotate(t_point *point, t_fdf *params);
 void				offset(t_point *pt, t_fdf *params);
 void				offset2(t_point *pt, t_fdf *params);
 void				find_z(t_point *pt1, t_point *pt2, t_fdf *params);
+void				free_all(char **ptr);
+int					count_lines(char *str);
+void				put_legend(t_fdf *params);
+int					deal_mouse(int button, int x, int y, t_fdf *params);
 
 #endif
