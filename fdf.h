@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/13 21:06:49 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/24 18:53:55 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/27 17:15:40 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void				free_all(char **ptr);
 int					count_lines(char *str);
 void				put_legend(t_fdf *params);
 int					deal_mouse(int button, int x, int y, t_fdf *params);
+int					inputvalidation(char str[]);
 
 #endif

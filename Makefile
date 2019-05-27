@@ -6,13 +6,14 @@
 #    By: tide-jon <tide-jon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/05/11 17:51:16 by tide-jon       #+#    #+#                 #
-#    Updated: 2019/05/27 15:08:31 by tide-jon      ########   odam.nl          #
+#    Updated: 2019/05/27 17:15:54 by tide-jon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		fdf
 
-SRCS = 		main.c key_commands.c rotation.c drawing.c helpers.c offset.c
+SRCS = 		main.c key_commands.c rotation.c drawing.c helpers.c offset.c \
+			inputvalidation.c
 
 OBJECTS =	$(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/15 17:51:03 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/24 19:06:36 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/27 17:15:24 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,18 @@ static void	create_map(int fd, t_fdf *params)
 	char	**temp;
 
 	chars_read = read(fd, str, 3000000);
+	if (chars_read == 0)
+	{
+		ft_putendl("Error: Empty file!");
+		exit(0);
+	}
 	str[chars_read] = '\0';
+	if (inputvalidation(str) == 0)
+	{
+		ft_putstr("Error: Incorrect file format. ");
+		ft_putendl("Use a 2d grid of integers delimited with a space.");
+		exit(0);
+	}
 	params->y = count_lines(str);
 	params->x = ft_strcount(str, ' ') / params->y;
 	temp = ft_strsplit((const char*)str, ' ');
@@ -96,6 +107,11 @@ int			main(int argc, char **argv)
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
+		if (fd == -1)
+		{
+			ft_putendl("Error: File doesn't exist or cannot be opened.");
+			exit(0);
+		}
 		params = (t_fdf*)malloc(sizeof(t_fdf));
 		create_map(fd, params);
 		set_params(params);
@@ -105,5 +121,7 @@ int			main(int argc, char **argv)
 		mlx_hook(params->win_ptr, 4, 0, deal_mouse, params);
 		mlx_loop(params->mlx_ptr);
 	}
+	else
+		ft_putendl("Usage: ./fdf target_file");
 	return (0);
 }
