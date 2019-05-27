@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/23 17:52:37 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/24 19:12:14 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/27 15:02:23 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int			deal_mouse(int button, int x, int y, t_fdf *params)
 {
 	(void)x;
 	(void)y;
-	printf("%i\n", params->colour);
 	if (button == 4 && params->colour < 0xFFFFFF - 123456)
 		params->colour += 123456;
 	if (button == 5 && params->colour > 123456)

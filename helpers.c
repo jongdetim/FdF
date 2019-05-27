@@ -6,7 +6,7 @@
 /*   By: tide-jon <tide-jon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/23 20:28:45 by tide-jon       #+#    #+#                */
-/*   Updated: 2019/05/24 18:30:45 by tide-jon      ########   odam.nl         */
+/*   Updated: 2019/05/27 14:53:56 by tide-jon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void		put_legend(t_fdf *params)
 	50, 130, 0xFFFFFF, "Topview           space");
 	mlx_string_put(params->mlx_ptr, params->win_ptr,
 	50, 150, 0xFFFFFF, "Isometric view    i");
+	mlx_string_put(params->mlx_ptr, params->win_ptr,
+	50, 170, 0xFFFFFF, "Change colour     scroll wheel");
 }
 
 void		find_z(t_point *pt1, t_point *pt2, t_fdf *params)

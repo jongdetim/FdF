@@ -6,7 +6,7 @@
 #    By: tide-jon <tide-jon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/05/11 17:51:16 by tide-jon       #+#    #+#                 #
-#    Updated: 2019/05/24 19:44:56 by tide-jon      ########   odam.nl          #
+#    Updated: 2019/05/27 15:08:31 by tide-jon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ $(NAME) :	$(OBJECTS)
 			@ cd minilibx_macos && make && cd .. && cd libft && make && cd ..
 			@ gcc -Wall -Wextra -Werror $(OBJECTS) -L ./libft/ -lft \
 			-L ./minilibx_macos/ -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+			@ echo "fdf executable compiled"
 
 %.o : %.c
 			@ gcc -c -Wall -Wextra -Werror $< -o $@ -I ./minilibx_macos/ -I ./libft/
